@@ -2,10 +2,10 @@ import React from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import LeftSidebar from '../LeftSidebar/LeftSidebar';
-import CourseSummaryCard from './CourseSummaryCard';
+import CourseSummaryCard from '../pages/CourseSummaryCard';
 
-const Courses = () => {
-    const allCourses = useLoaderData();
+const Category = () => {
+    const categoryCourse = useLoaderData();
     return (
         <Row>
             <Col lg='4'>
@@ -13,16 +13,18 @@ const Courses = () => {
             </Col>
             <Col lg='8'>
                 <div>
-                    <h5>Total {allCourses.length} courses</h5>
+                    <h5>This category has {categoryCourse.length} courses</h5>
                     {
-                        allCourses.map(course => <CourseSummaryCard
+                        categoryCourse.map(course => <CourseSummaryCard
                             key={course.id}
-                            course={course}></CourseSummaryCard>)
+                            course={course}
+                        ></CourseSummaryCard>)
                     }
                 </div>
+
             </Col>
         </Row>
     );
 };
 
-export default Courses;
+export default Category;
