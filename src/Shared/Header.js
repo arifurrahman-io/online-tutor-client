@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../authentication/AuthProvider';
 import { Image } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
+import logo from '../logo.png'
 
 const Header = () => {
 
@@ -27,13 +28,20 @@ const Header = () => {
 
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="light" variant="light" fixed="top" >
+        <Navbar collapseOnSelect expand="lg" bg="light" variant="light"  >
             <Container>
-                <Navbar.Brand><Link to='/' className='text-decoration-none text-dark fw-bold'>Online <span className='text-warning'>Tutor</span></Link></Navbar.Brand>
+                <Navbar.Brand><img
+                    alt=""
+                    src={logo}
+                    width="30"
+                    height="30"
+                    className="d-inline-block align-top"
+                /><Link to='/' className='text-decoration-none text-dark fw-bold'>Online <span className='text-warning'>Tutor</span></Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link><Link to='/' className='text-decoration-none text-dark fw-bold'>Home</Link></Nav.Link>
+                        <Nav.Link><Link to='/courses' className='text-decoration-none text-dark fw-bold'>Courses</Link></Nav.Link>
                         <Nav.Link><Link to='/blog' className='text-decoration-none text-dark fw-bold'>Blog</Link></Nav.Link>
                     </Nav>
 
