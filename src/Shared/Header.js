@@ -8,6 +8,7 @@ import { AuthContext } from '../authentication/AuthProvider';
 import { Image } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import logo from '../logo.png'
+import toast from 'react-hot-toast';
 
 const Header = () => {
 
@@ -20,6 +21,7 @@ const Header = () => {
         logOut()
             .then(() => { })
             .catch(error => console.error(error));
+        toast.success('Loged Out')
         navigate(from, { replace: true });
     }
 
@@ -38,7 +40,7 @@ const Header = () => {
                     className="d-inline-block align-top"
                 /><Link to='/' className='text-decoration-none text-dark fw-bold'>Online <span className='text-warning'>Tutor</span></Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
+                <Navbar.Collapse id="responsive-navbar-nav" className='p-2'>
                     <Nav className="me-auto">
                         <Nav.Link><Link to='/' className='text-decoration-none text-dark fw-bold'>Home</Link></Nav.Link>
                         <Nav.Link><Link to='/courses' className='text-decoration-none text-dark fw-bold'>Courses</Link></Nav.Link>
@@ -56,7 +58,7 @@ const Header = () => {
                                                 style={{ height: '40px' }} roundedCircle
                                                 src={user?.photoURL}></Image>
                                             <h6>{user.displayName}</h6>
-                                            <NavDropdown.Item href="#action/3.1" className='text-center'>
+                                            <NavDropdown.Item className='text-center'>
                                                 Edit Profile
                                             </NavDropdown.Item>
                                             <NavDropdown.Item className='text-center' onClick={handleLogOut}>

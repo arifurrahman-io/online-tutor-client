@@ -1,0 +1,31 @@
+.course-detail {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 15px;
+    gap: 20px;
+    border: 1px solid gold;
+    border-radius: 10px;
+}
+
+.course-detail img {
+    width: 100%;
+}
+
+.course-detail-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: beige;
+    padding: 10px;
+}
+
+.course-detail-header p {
+    margin: 0px;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .course-detail {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

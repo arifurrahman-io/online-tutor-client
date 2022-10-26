@@ -1,29 +1,32 @@
 import React from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { useLoaderData } from 'react-router-dom';
 import LeftSidebar from '../LeftSidebar/LeftSidebar';
 import CourseSummaryCard from '../pages/CourseSummaryCard';
+import './Category.css'
 
 const Category = () => {
     const categoryCourse = useLoaderData();
     return (
-        <Row>
-            <Col lg='4'>
-                <LeftSidebar></LeftSidebar>
-            </Col>
-            <Col lg='8'>
-                <div>
-                    <h5>This category has {categoryCourse.length} courses</h5>
-                    {
-                        categoryCourse.map(course => <CourseSummaryCard
-                            key={course.id}
-                            course={course}
-                        ></CourseSummaryCard>)
-                    }
-                </div>
+        <Container>
+            <Row className='mt-4'>
+                <Col lg='4'>
+                    <LeftSidebar></LeftSidebar>
+                </Col>
+                <Col lg='8'>
+                    <h5 className='text-center'>Totat {categoryCourse.length} courses in this category</h5>
+                    <div className='course-card'>
+                        {
+                            categoryCourse.map(course => <CourseSummaryCard
+                                key={course.id}
+                                course={course}
+                            ></CourseSummaryCard>)
+                        }
+                    </div>
 
-            </Col>
-        </Row>
+                </Col>
+            </Row>
+        </Container>
     );
 };
 
