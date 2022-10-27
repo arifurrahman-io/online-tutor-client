@@ -12,7 +12,7 @@ const Carousel = () => {
             </div>
             <div className='half-width header-text'>
                 <h5>Welcome to Online Tutor</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum saepe, alias ullam tempore natus voluptatem sed hic voluptates eveniet sunt laudantium praesentium ratione mollitia amet quod cum accusantium aliquam? Voluptate.</p>
+                <p>Hello Learners, We are providing many courses for you. Are you ready to enroll. Premium access is available where you can get many features.</p>
                 <Link to='/courses'><Button>Star Now <FaLongArrowAltRight /></Button></Link>
             </div>
         </div>
