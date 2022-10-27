@@ -15,7 +15,7 @@ const LeftSidebar = () => {
     return (
         <div className='card-grid'>
             <h4 className='text-white'>Categories: {categories.length}</h4>
-            <div className=''>
+            <div>
                 {
                     categories.map(category => <p key={category.id}>
                         <Link to={`/category/${category.id}`} className='text-decoration-none text-white fw-bold'>{category.category}</Link>

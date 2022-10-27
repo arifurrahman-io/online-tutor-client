@@ -30,11 +30,20 @@ const Login = () => {
                 if (user.emailVerified) {
                     navigate(from, { replace: true });
                 }
+
                 else {
                     toast.error('Your email is not verified!')
                 }
             })
-            .catch(e => console.error(e));
+            .catch(e => {
+                console.error(e);
+                if (e.code === "auth/user-not-found") {
+                    toast.error('Make sure you registered with this email address.')
+                }
+                if (e.code === "auth/wrong-password") {
+                    toast.error('Wrong Password!')
+                }
+            });
     }
     const googleProvider = new GoogleAuthProvider();
     const handleGoogleSignIn = () => {
