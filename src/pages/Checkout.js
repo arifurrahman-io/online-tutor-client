@@ -21,7 +21,7 @@ const Checkout = () => {
                     <div><p className='m-0'>{user?.displayName}</p></div>
                     <div><p className='m-0'>{user?.email}</p></div>
                 </div>
-                <div className='col col-md-8 m-3'>
+                <div className='col col-md-8 m-3 p-4'>
                     <div className='d-md-flex bg-light'>
                         <div className='m-4'>
                             <img src={picture} style={{ width: 150 }} className="rounded" alt="" />

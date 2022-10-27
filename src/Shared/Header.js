@@ -9,7 +9,6 @@ import { Image } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import logo from '../logo.png'
 import toast from 'react-hot-toast';
-import DarkMode from '../DarkMode';
 
 const Header = () => {
 
@@ -25,9 +24,6 @@ const Header = () => {
         toast.success('Loged Out')
         navigate(from, { replace: true });
     }
-
-
-
 
 
     return (
@@ -46,6 +42,7 @@ const Header = () => {
                         <Nav.Link><Link to='/' className='text-decoration-none text-dark fw-bold'>Home</Link></Nav.Link>
                         <Nav.Link><Link to='/courses' className='text-decoration-none text-dark fw-bold'>Courses</Link></Nav.Link>
                         <Nav.Link><Link to='/blog' className='text-decoration-none text-dark fw-bold'>Blog</Link></Nav.Link>
+                        <Nav.Link><Link to='/faq' className='text-decoration-none text-dark fw-bold'>FAQ</Link></Nav.Link>
                     </Nav>
 
 

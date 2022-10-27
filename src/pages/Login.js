@@ -4,8 +4,8 @@ import Form from 'react-bootstrap/Form';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../authentication/AuthProvider';
-import toast from 'react-hot-toast';
-import { Container } from 'react-bootstrap';
+import { toast } from 'react-hot-toast';
+import { Container, } from 'react-bootstrap';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
@@ -26,11 +26,11 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
                 form.reset();
                 if (user.emailVerified) {
                     navigate(from, { replace: true });
-                } else {
+                }
+                else {
                     toast.error('Your email is not verified!')
                 }
             })
@@ -54,8 +54,6 @@ const Login = () => {
     const handleGitHubSignIn = () => {
         providerLogin(githubProvider)
             .then(result => {
-                const user = result.user;
-                console.log(user);
                 toast.success('Your email is verified!')
                 navigate(from, { replace: true });
             })
@@ -68,11 +66,11 @@ const Login = () => {
                 <Form onSubmit={handleSubmit} className=''>
                     <h5>Login with Email and Password</h5>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Control type="email" name='email' placeholder="Enter Email" />
+                        <Form.Control type="email" name='email' placeholder="Enter Email" required />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Control type="password" name='password' placeholder="Password" />
+                        <Form.Control type="password" name='password' placeholder="Password" required />
                     </Form.Group>
                     <Button variant="primary" type="submit">
                         Login

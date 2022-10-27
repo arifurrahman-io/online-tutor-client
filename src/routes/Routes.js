@@ -9,6 +9,7 @@ import Category from "../Category/Category";
 import Course from "../pages/Course";
 import Checkout from "../pages/Checkout";
 import PrivateRoutes from "../privateRoutes/PrivateRoutes";
+import FAQ from '../pages/FAQ';
 
 export const routes = createBrowserRouter([
     {
@@ -51,6 +52,10 @@ export const routes = createBrowserRouter([
                 path: '/category/:id',
                 element: <Category></Category>,
                 loader: ({ params }) => fetch(`https://online-tutor-server.vercel.app/category/${params.id}`)
+            },
+            {
+                path: '/faq',
+                element: <FAQ></FAQ>
             }
         ]
     }

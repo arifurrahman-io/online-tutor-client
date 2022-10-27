@@ -17,6 +17,11 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        if (password.length < 6) {
+            toast.error('Please enter at least 6 charecters for password.');
+            return;
+        }
+
         createUser(email, password)
             .then(result => {
                 const user = result.user;
@@ -53,17 +58,17 @@ const Register = () => {
                 <Form onSubmit={handleSubmit}>
                     <h5>Register with Email and Password</h5>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Control type="text" name='name' placeholder="Your Name" />
+                        <Form.Control type="text" name='name' placeholder="Your Name" required />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Control type="text" name='photoURL' placeholder="Photo URL" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Control type="email" name='email' placeholder="Enter Email" />
+                        <Form.Control type="email" name='email' placeholder="Enter Email" required />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Control type="password" name='password' placeholder="Password" />
+                        <Form.Control type="password" name='password' placeholder="Password" required />
                     </Form.Group>
                     <Button variant="primary" type="submit">
                         Login
