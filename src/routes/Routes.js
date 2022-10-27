@@ -10,6 +10,7 @@ import Course from "../pages/Course";
 import Checkout from "../pages/Checkout";
 import PrivateRoutes from "../privateRoutes/PrivateRoutes";
 import FAQ from '../pages/FAQ';
+import ErrorLinkPage from "../pages/ErrorLinkPage";
 
 export const routes = createBrowserRouter([
     {
@@ -56,6 +57,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/faq',
                 element: <FAQ></FAQ>
+            },
+            {
+                path: '*',
+                element: <ErrorLinkPage></ErrorLinkPage>
             }
         ]
     }
