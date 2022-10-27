@@ -9,6 +9,7 @@ import { Image } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import logo from '../logo.png'
 import toast from 'react-hot-toast';
+import DarkMode from '../DarkMode';
 
 const Header = () => {
 
@@ -52,15 +53,11 @@ const Header = () => {
                         user?.uid ?
                             <>
                                 <Nav>
-                                    <NavDropdown title='Profile' className='fw-bold' id="collasible-nav-dropdown">
+                                    <NavDropdown title={<Image
+                                        style={{ height: '40px' }} roundedCircle
+                                        src={user?.photoURL}></Image>} className='fw-bold' id="collasible-nav-dropdown">
                                         <div className='d-flex flex-column justify-content-center align-items-center'>
-                                            <Image
-                                                style={{ height: '40px' }} roundedCircle
-                                                src={user?.photoURL}></Image>
                                             <h6>{user.displayName}</h6>
-                                            <NavDropdown.Item className='text-center'>
-                                                Edit Profile
-                                            </NavDropdown.Item>
                                             <NavDropdown.Item className='text-center' onClick={handleLogOut}>
                                                 Log Out
                                             </NavDropdown.Item>
@@ -80,6 +77,7 @@ const Header = () => {
                     }
 
                 </Navbar.Collapse>
+
             </Container>
         </Navbar>
     );

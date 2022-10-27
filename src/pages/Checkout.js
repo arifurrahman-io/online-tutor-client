@@ -6,10 +6,13 @@ import { AuthContext } from '../authentication/AuthProvider';
 const Checkout = () => {
     const data = useLoaderData();
     const { title, picture, about, price } = data;
-    const vat = price * 0.025;
-    const gTotal = price + vat;
+
+    const coursePrice = parseFloat(price)
+    const vat = parseFloat(coursePrice * 0.025);
+    const gTotal = parseFloat(price + vat);
+
     const { user } = useContext(AuthContext);
-    console.log(user);
+
     return (
         <Container >
             <div className='d-md-flex'>
@@ -32,7 +35,7 @@ const Checkout = () => {
             </div>
             <div className='row'>
                 <div className='col col-md-4 bg-light m-3 p-4'>
-                    <div className=' d-flex justify-content-between'><p>Price of the course:</p><p> {price} Tk</p></div>
+                    <div className=' d-flex justify-content-between'><p>Price of the course:</p><p> {coursePrice} Tk</p></div>
                     <div className=' d-flex justify-content-between'><p>2.5% VAT for the course:</p><p> {vat} Tk</p></div>
                     <div className=' d-flex justify-content-between'><p>Grand total:</p><p> {gTotal} Tk</p></div>
                 </div>
