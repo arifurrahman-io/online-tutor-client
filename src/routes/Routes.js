@@ -22,7 +22,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>,
-                loader: () => fetch('http://localhost:5000/blog')
+                loader: () => fetch('https://online-tutor-server.vercel.app/blog')
             },
             {
                 path: '/login',
@@ -35,22 +35,22 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses></Courses>,
-                loader: () => fetch('http://localhost:5000/courses')
+                loader: () => fetch('https://online-tutor-server.vercel.app/courses')
             },
             {
                 path: 'course/:id',
                 element: <Course></Course>,
-                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({ params }) => fetch(`https://online-tutor-server.vercel.app/course/${params.id}`)
             },
             {
                 path: 'checkout/:id',
                 element: <PrivateRoutes><Checkout></Checkout></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/checkout/${params.id}`)
+                loader: ({ params }) => fetch(`https://online-tutor-server.vercel.app/checkout/${params.id}`)
             },
             {
                 path: '/category/:id',
                 element: <Category></Category>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://online-tutor-server.vercel.app/category/${params.id}`)
             }
         ]
     }

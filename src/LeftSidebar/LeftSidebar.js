@@ -7,7 +7,7 @@ const LeftSidebar = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/categories/')
+        fetch('https://online-tutor-server.vercel.app/categories/')
             .then(res => res.json())
             .then(data => setCategories(data));
     }, []);
